@@ -7,5 +7,6 @@ module.exports = {
 		'dashboard-widget': './src/dashboard',
 		'custom-slots': './src/custom-slots',
 		portal: './src/portal',
+		unified: './src/available-slots/unified',
 	},
 };
