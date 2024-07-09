@@ -15,13 +15,6 @@ import { __, sprintf } from '@wordpress/i18n';
  */
 const SiteEditorDocumentSettingPanel = () => {
 	// Retrieve information about the current post type.
-
-	const siteEditorContexts = [
-		'wp_template',
-		'wp_block',
-		'wp_template_part',
-	];
-
 	const { isViewable, postType } = useSelect( ( select ) => {
 		const postTypeName = select( editorStore ).getCurrentPostType();
 		const postTypeObject = select( coreStore ).getPostType( postTypeName );
