@@ -53,6 +53,6 @@ const SiteEditorDocumentSettingPanel = () => {
 	);
 };
 
-registerPlugin( 'example-unified-site-editor-only', {
+registerPlugin( 'example-unified-site-editor', {
 	render: SiteEditorDocumentSettingPanel,
 } );
