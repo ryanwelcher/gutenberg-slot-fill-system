@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { PluginSidebarMoreMenuItem } from '@wordpress/edit-site';
+import { PluginPostStatusInfo } from '@wordpress/editor';
 import { registerPlugin } from '@wordpress/plugins';
 
 /**
@@ -11,16 +11,16 @@ import { registerPlugin } from '@wordpress/plugins';
 import { Avocado } from '../../../svg/icons';
 
 // Register the plugin.
-registerPlugin( 'example-edit-site-plugin-sidebar-more-menu-item', {
+registerPlugin( 'example-edit-post-plugin-post-status-info', {
 	render: () => (
-		<>
-			<PluginSidebarMoreMenuItem target="sidebar-name">
+		<PluginPostStatusInfo className="my-custom-class-name">
+			<p>
 				{ __(
-					'Site Editor Example: PluginSidebarMoreMenuItem - Menu Item',
+					'Post Status Info SlotFill',
 					'gutenberg-slot-fill-system'
 				) }
-			</PluginSidebarMoreMenuItem>
-		</>
+			</p>
+		</PluginPostStatusInfo>
 	),
 	icon: Avocado,
 } );

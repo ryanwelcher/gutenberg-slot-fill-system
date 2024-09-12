@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { PluginPrePublishPanel } from '@wordpress/edit-post';
+import { PluginPostPublishPanel } from '@wordpress/editor';
 import { registerPlugin } from '@wordpress/plugins';
 
 /**
@@ -11,15 +11,15 @@ import { registerPlugin } from '@wordpress/plugins';
 import { Avocado } from '../../../svg/icons';
 
 // Register the plugin.
-registerPlugin( 'example-edit-post-plugin-pre-publish-panel', {
+registerPlugin( 'example-edit-post-plugin-post-publish-panel', {
 	render: () => (
-		<PluginPrePublishPanel
+		<PluginPostPublishPanel
 			className="custom-panel-class"
-			initialOpen
 			title={ __( 'My Custom Panel', 'gutenberg-slot-fill-system' ) }
+			initialOpen
 		>
-			<p>{ __( 'Pre Publish Panel', 'gutenberg-slot-fill-system' ) }</p>
-		</PluginPrePublishPanel>
+			<p>{ __( 'Post Publish Panel', 'gutenberg-slot-fill-system' ) }</p>
+		</PluginPostPublishPanel>
 	),
 	icon: Avocado,
 } );

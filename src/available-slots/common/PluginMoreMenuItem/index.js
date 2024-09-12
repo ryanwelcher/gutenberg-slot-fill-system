@@ -11,7 +11,7 @@ import { registerPlugin } from '@wordpress/plugins';
 import { Avocado } from '../../../svg/icons';
 
 // Register the plugin.
-registerPlugin( 'example-edit-site-plugin-more-menu-item', {
+registerPlugin( 'example-common-plugin-more-menu-item', {
 	render: () => (
 		<PluginMoreMenuItem
 			href="https://developer.wordpress.org/block-editor/reference-guides/slotfills/"

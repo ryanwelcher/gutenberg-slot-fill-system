@@ -2,8 +2,11 @@
  * Import each SlotFill example into main file.
  */
 
-import './PluginSidebar';
 import './PluginBlockSettingsMenuItem';
-// import './PluginMoreMenuItem';
-// import './PluginSidebarMoreMenuItem';
-// import './PluginTemplateSettingPanel';
+import './PluginDocumentSettingPanel';
+import './PluginMoreMenuItem';
+import './PluginPostPublishPanel';
+import './PluginPostStatusInfo';
+import './PluginPrePublishPanel';
+import './PluginSidebar';
+import './PluginSidebarMoreMenuItem';
