@@ -30,7 +30,7 @@ namespace GutenbergSlotFillSystem;
 			$edit_post_examples_assets = require_once $edit_post_examples_asset_path;
 			\wp_enqueue_script(
 				'gutenberg-slot-fill-system-edit-post-examples', // Handle.
-				plugin_dir_url( __FILE__ ) . '/build/edit-post.js',
+				plugin_dir_url( __FILE__ ) . 'build/edit-post.js',
 				$edit_post_examples_assets['dependencies'],
 				$edit_post_examples_assets['version'],
 				true
@@ -45,25 +45,22 @@ namespace GutenbergSlotFillSystem;
 			$edit_post_examples_assets = require_once $portal_example_asset_path;
 			\wp_enqueue_script(
 				'gutenberg-slot-fill-system-portal', // Handle.
-				plugin_dir_url( __FILE__ ) . '/build/portal.js',
+				plugin_dir_url( __FILE__ ) . 'build/portal.js',
 				$edit_post_examples_assets['dependencies'],
 				$edit_post_examples_assets['version'],
 				true
 			);
 		}
 
-		// Enqueue the slots for the edit site screen.
-		$edit_site_examples_asset_path = plugin_dir_path( __FILE__ ) . 'build/edit-site.asset.php';
-		if (
-			file_exists( $edit_site_examples_asset_path )
-			&& 'site-editor' === $current_page->base
-		) {
-			$edit_site_examples_assets = require_once $edit_site_examples_asset_path;
+		// Enqueue the examples for the common slots
+		$common_examples_asset_path = plugin_dir_path( __FILE__ ) . 'build/common.asset.php';
+		if ( file_exists( $common_examples_asset_path ) ) {
+			$common_examples_assets = require_once $common_examples_asset_path;
 			\wp_enqueue_script(
-				'gutenberg-slot-fill-system-edit-site-examples', // Handle.
-				plugin_dir_url( __FILE__ ) . '/build/edit-site.js',
-				$edit_site_examples_assets['dependencies'],
-				$edit_site_examples_assets['version'],
+				'gutenberg-slot-fill-system-common-examples', // Handle.
+				plugin_dir_url( __FILE__ ) . 'build/common.js',
+				$common_examples_assets['dependencies'],
+				$common_examples_assets['version'],
 				true
 			);
 		}
@@ -73,7 +70,7 @@ namespace GutenbergSlotFillSystem;
 			$conditional_examples_assets = require_once $conditional_examples_asset_path;
 			\wp_enqueue_script(
 				'gutenberg-slot-fill-system-conditional-examples', // Handle.
-				plugin_dir_url( __FILE__ ) . '/build/conditional.js',
+				plugin_dir_url( __FILE__ ) . 'build/conditional.js',
 				$conditional_examples_assets['dependencies'],
 				$conditional_examples_assets['version'],
 				true

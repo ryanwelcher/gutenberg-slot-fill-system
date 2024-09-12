@@ -19,7 +19,7 @@ import { Avocado } from '../../../svg/icons';
 registerPlugin( 'example-edit-post-main-dashboard-button', {
 	render: () => (
 		<MainDashboardButton>
-			<FullscreenModeClose icon={ Avocado } />
+			<FullscreenModeClose icon={ Avocado } href="http://wordpress.org" />
 		</MainDashboardButton>
 	),
 	icon: Avocado,

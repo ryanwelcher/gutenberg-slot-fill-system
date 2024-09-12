@@ -3,10 +3,10 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		'edit-post': './src/available-slots/edit-post',
-		'edit-site': './src/available-slots/edit-site',
+		common: './src/available-slots/common',
 		'dashboard-widget': './src/dashboard',
 		'custom-slots': './src/custom-slots',
 		portal: './src/portal',
-		unified: './src/available-slots/unified',
+		conditional: './src/conditional-rendering',
 	},
 };

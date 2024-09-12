@@ -3,7 +3,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { PluginBlockSettingsMenuItem } from '@wordpress/edit-post';
+import { PluginBlockSettingsMenuItem } from '@wordpress/editor';
 import { registerPlugin } from '@wordpress/plugins';
 
 /**
@@ -12,7 +12,7 @@ import { registerPlugin } from '@wordpress/plugins';
 import { Avocado } from '../../../svg/icons';
 
 // Register the plugin.
-registerPlugin( 'example-edit-post-plugin-block-settings-menu-item', {
+registerPlugin( 'plugin-block-settings-menu-item-example', {
 	render: () => (
 		<PluginBlockSettingsMenuItem
 			allowedBlocks={ [ 'core/paragraph' ] }
