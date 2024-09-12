@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * The component to be rendered  as part of the plugin.
  */
-const EditPostDocumentSettingPanel = () => {
+const ConditionalEditPostDocumentSettingPanel = () => {
 	// Retrieve information about the current post type.
 	const isViewable = useSelect( ( select ) => {
 		const postTypeName = select( editorStore ).getCurrentPostType();
@@ -21,7 +21,7 @@ const EditPostDocumentSettingPanel = () => {
 		return postTypeObject?.viewable;
 	}, [] );
 
-	// If the post type is not viewable, do not render my plugin.
+	// If the post type is not viewable, then do not render my the fill.
 	if ( ! isViewable ) {
 		return null;
 	}
@@ -29,22 +29,14 @@ const EditPostDocumentSettingPanel = () => {
 	return (
 		<PluginDocumentSettingPanel
 			name="custom-panel"
-			title={ __(
-				'Unified Post Editor Example',
-				'gutenberg-slot-fill-system'
-			) }
+			title={ __( 'Conditional Post Editor Example' ) }
 			className="custom-panel"
 		>
-			<p>
-				{ __(
-					'Only appears in the Edit Post screen',
-					'gutenberg-slot-fill-system'
-				) }
-			</p>
+			<p>{ __( 'Only appears in the Edit Post screen' ) }</p>
 		</PluginDocumentSettingPanel>
 	);
 };
 
-registerPlugin( 'example-unified-post-edit-only', {
-	render: EditPostDocumentSettingPanel,
+registerPlugin( 'example-conditional-post-edit-only', {
+	render: ConditionalEditPostDocumentSettingPanel,
 } );

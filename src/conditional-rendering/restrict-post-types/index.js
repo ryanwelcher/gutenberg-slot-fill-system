@@ -35,18 +35,14 @@ const RestrictPostTypes = () => {
 	return (
 		<PluginDocumentSettingPanel
 			name="custom-panel"
-			title={ __(
-				'Unified Restrict Post Types Example',
-				'gutenberg-slot-fill-system'
-			) }
+			title={ __( 'Conditional Restrict By Post Type Example' ) }
 			className="custom-panel"
 		>
 			<p>
 				{ sprintf(
 					// eslint-disable-next-line @wordpress/i18n-translator-comments
 					__(
-						'Only appears on Post Types that are in the allowed list. %s',
-						'gutenberg-slot-fill-system'
+						'Only appears on Post Types that are in this list: %s'
 					),
 					allowedPostTypes.join( ', ' )
 				) }
@@ -55,6 +51,6 @@ const RestrictPostTypes = () => {
 	);
 };
 
-registerPlugin( 'example-unified-restrict-post-types', {
+registerPlugin( 'example-conditional-restrict-post-types', {
 	render: RestrictPostTypes,
 } );

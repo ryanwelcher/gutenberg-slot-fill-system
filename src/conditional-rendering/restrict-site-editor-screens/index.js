@@ -13,7 +13,7 @@ import { __, sprintf } from '@wordpress/i18n';
 /**
  * The component to be rendered  as part of the plugin.
  */
-const SiteEditorDocumentSettingPanel = () => {
+const RestrictSiteEditorScreens = () => {
 	// Allowed areas in the Site Editor.
 	const allowedSiteEditorScreens = [
 		'wp_template', // Templates
@@ -26,7 +26,8 @@ const SiteEditorDocumentSettingPanel = () => {
 		const postTypeObject = select( coreStore ).getPostType( postTypeName );
 
 		return {
-			isViewable: postTypeObject?.viewable, // A viewable post type is one than can be viewed in the WordPress admin. Internal ones are not set to viewable.
+			// A viewable post type is one than can be viewed in the WordPress admin. Internal ones are not set to viewable.
+			isViewable: postTypeObject?.viewable,
 			postType: postTypeName,
 		};
 	}, [] );
@@ -39,18 +40,14 @@ const SiteEditorDocumentSettingPanel = () => {
 	return (
 		<PluginDocumentSettingPanel
 			name="custom-panel"
-			title={ __(
-				'Unified: Restricted to Site Editor screens',
-				'gutenberg-slot-fill-system'
-			) }
+			title={ __( 'Unified: Restricted to Site Editor screens' ) }
 			className="custom-panel"
 		>
 			<p>
 				{ sprintf(
-					// eslint-disable-next-line @wordpress/i18n-translator-comments
+					/* translators: %s: List of allowed Site Editor screens */
 					__(
-						'Only appears on Editor Screens that are in the allowed list. %s',
-						'gutenberg-slot-fill-system'
+						'Only appears on Editor Screens that are in the allowed list. %s'
 					),
 					allowedSiteEditorScreens.join( ', ' )
 				) }
@@ -59,6 +56,6 @@ const SiteEditorDocumentSettingPanel = () => {
 	);
 };
 
-registerPlugin( 'example-unified-site-editor-only', {
-	render: SiteEditorDocumentSettingPanel,
+registerPlugin( 'example-conditional-restrict-site-editor-screens', {
+	render: RestrictSiteEditorScreens,
 } );

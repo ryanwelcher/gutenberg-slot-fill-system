@@ -68,14 +68,14 @@ namespace GutenbergSlotFillSystem;
 			);
 		}
 		// Enqueue the unified slots for WordPress 6.6.
-		$unified_examples_asset_path = plugin_dir_path( __FILE__ ) . 'build/unified.asset.php';
-		if ( file_exists( $unified_examples_asset_path ) ) {
-			$edit_site_examples_assets = require_once $unified_examples_asset_path;
+		$conditional_examples_asset_path = plugin_dir_path( __FILE__ ) . 'build/conditional.asset.php';
+		if ( file_exists( $conditional_examples_asset_path ) ) {
+			$conditional_examples_assets = require_once $conditional_examples_asset_path;
 			\wp_enqueue_script(
-				'gutenberg-slot-fill-system-unified-examples', // Handle.
-				plugin_dir_url( __FILE__ ) . '/build/unified.js',
-				$edit_site_examples_assets['dependencies'],
-				$edit_site_examples_assets['version'],
+				'gutenberg-slot-fill-system-conditional-examples', // Handle.
+				plugin_dir_url( __FILE__ ) . '/build/conditional.js',
+				$conditional_examples_assets['dependencies'],
+				$conditional_examples_assets['version'],
 				true
 			);
 		}

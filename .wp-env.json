@@ -1,9 +1,7 @@
 {
-	"core": "WordPress/WordPress",
+	"core": null,
 	"plugins": [ "." ],
-	"env": {
-		"tests": {
-			"phpVersion": "8.1"
-		}
+	"config": {
+		"SCRIPT_DEBUG": true
 	}
 }

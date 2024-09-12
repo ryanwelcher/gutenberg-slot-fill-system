@@ -8,24 +8,22 @@ import {
 } from '@wordpress/editor';
 import { store as coreStore } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 
 /**
  * The component to be rendered  as part of the plugin.
  */
 const SiteEditorDocumentSettingPanel = () => {
 	// Retrieve information about the current post type.
-	const { isViewable, postType } = useSelect( ( select ) => {
+	const isViewable = useSelect( ( select ) => {
 		const postTypeName = select( editorStore ).getCurrentPostType();
 		const postTypeObject = select( coreStore ).getPostType( postTypeName );
 
-		return {
-			isViewable: postTypeObject?.viewable, // A viewable post type is one than can be viewed in the WordPress admin. Internal ones are not set to viewable.
-			postType: postTypeName,
-		};
+		// A viewable post type is one than can be viewed in the WordPress admin. Internal ones are not set to viewable.
+		return postTypeObject?.viewable;
 	}, [] );
 
-	// If the post type is viewable, do not render my plugin.
+	// If the post type is viewable, do not render my fill
 	if ( isViewable ) {
 		return null;
 	}
@@ -33,26 +31,14 @@ const SiteEditorDocumentSettingPanel = () => {
 	return (
 		<PluginDocumentSettingPanel
 			name="custom-panel"
-			title={ __(
-				'Unified Site Editor Example',
-				'gutenberg-slot-fill-system'
-			) }
+			title={ __( 'Conditional Site Editor Example' ) }
 			className="custom-panel"
 		>
-			<p>
-				{ sprintf(
-					// eslint-disable-next-line @wordpress/i18n-translator-comments
-					__(
-						'Site Editor Only: post type is %s',
-						'gutenberg-slot-fill-system'
-					),
-					postType
-				) }
-			</p>
+			<p>{ __( 'Only appears in the Site Editor' ) }</p>
 		</PluginDocumentSettingPanel>
 	);
 };
 
-registerPlugin( 'example-unified-site-editor', {
+registerPlugin( 'example-conditional-site-editor', {
 	render: SiteEditorDocumentSettingPanel,
 } );
