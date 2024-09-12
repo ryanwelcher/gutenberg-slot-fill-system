@@ -1,6 +1,6 @@
 # The WordPress SlotFill System
 
-This repository contains working example of all of the existing SlotFills available in WordPress as of version 6.0.
+This repository contains working example of all of the existing SlotFills available in WordPress as of version 6.6.
 
 ## Common Slots Available in the Post Edit Site Edit Screens
 
